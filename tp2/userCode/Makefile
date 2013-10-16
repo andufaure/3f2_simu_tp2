@@ -19,6 +19,7 @@ clean:
 		@cd obj/debug && make clean
 		@cd src && make clean
 		@cd src && rm -f sourceGenerated.hpp
+		@rm -f binrng
 		@rm -Rf $(UNCLEAN_FILES)
 		
 distclean: clean

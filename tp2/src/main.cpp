@@ -2,6 +2,7 @@
 #include <fstream>
 #include "tinymt64.hpp"
 #include <cstring>
+#include <cassert>
 
 #define MOD 6
 
@@ -21,6 +22,27 @@ tinymt64_t	mt;
    }
    pi = ((double) cumul * 4. / MAX);
  */
+void    buildBin(const char*    inFilename,
+                 uint           inNbReplics,
+                 uint           inNb)
+{
+    FILE*   fp = 0;
+    
+    fp = fopen(inFilename, "wb");
+    assert(fp != 0);
+    
+    tinymt64_init(&mt, 23);
+    
+    for (unsigned r = 0 ; r < inNbReplics ; ++r)
+        for(uint index = 1 ; index < inNb ; ++index)
+        {
+            double rnd = tinymt64_generate_double(&mt);
+            fwrite(&rnd, sizeof(double), 1, fp);
+        }
+        
+    fclose(fp);
+}
+
 
 void    buildSource(const char * inFileName,
                     uint inNbReplics,
@@ -97,16 +119,25 @@ double  piReplic(unsigned inReplics, unsigned inMax)
 
 
 
-int main(int, char**)
+int main3(int, char**)
 {
     
-    std::cout << piReplic(10, 1000000) << std::endl;
+    std::cout << piReplic(100, 10000000) << std::endl;
     
     system("cd ./userCode && make clean");
-    buildSource("userCode/src/sourceGenerated.hpp", 10, 1000000);
+    buildSource("./userCode/src/sourceGenerated.hpp", 100, 10000000);
     system("cd ./userCode && make && ./prog");
     
     
     return (0);
+}
+
+int main(int, char**)
+{
+    system("cd ./userCode && make clean");
+    buildBin("./userCode/binrng", 100, 10000000);
+    system("cd ./userCode && make && ./prog");
+    
+    return 0;
 }
 
