@@ -1,0 +1,26 @@
+#
+# Generated from addCPPProject.sh, by dufaure@etud (Wed, 16 Oct 2013 10:24:44 +0200)
+#
+MD5=/usr/bin/md5sum
+TAR=/bin/tar
+CC=/usr/bin/g++
+LD=/usr/bin/g++
+CCFLAGS_COMMON=-Wall -Wextra -pedantic -std=c++0x 
+CCFLAGS_DEBUG=$(CCFLAGS_COMMON) -g
+CCFLAGS_RELEASE=$(CCFLAGS_COMMON) -O2
+INCDIRS=
+LDFLAGS_COMMON=-g
+LDFLAGS_DEBUG=$(LDFLAGS_COMMON)
+LDFLAGS_RELEASE=$(LDFLAGS_COMMON),-x,-X,-s
+LIBDIRS=
+LIBFLAGS=
+PROJECT_NAME=tp2
+PROJECT_TAR_FLAGS=cvzf
+PROJECT_TARBALL_EXT=tgz
+TARBALL_FILES=obj src README AUTHORS Makefile Makefile.options userCode
+PROJECT_OWNER=dufaure
+OBJS=main.o tinymt64.o
+EXEC=prog
+UNCLEAN_FILES=*.o *.core
+TARBALL_DIR=tarball
+

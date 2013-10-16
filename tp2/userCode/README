@@ -1,0 +1,35 @@
+;
+; Generated from addCPPProject.sh, by dufaure@etud (Wed, 16 Oct 2013 10:51:34 +0200)
+;
+==================================================================
+    1. Makefile commands
+==================================================================
+
+    $ 	make			Builds the executable
+    $ 	make clean		Removes .o files & unclean files
+    $	make distclean		Removes .o files, unclean files,
+				program & tarball
+    $	make tarball		Builds tarball of project
+
+    Please look at Makefile.options & Makefile to change
+    parameters.
+
+==================================================================
+    2. Build requirements
+==================================================================
+    
+    ----------------------------------------------
+    Dev & test platform
+ 	OS :		GNU/Linux
+	KERNEL:		Linux 2.6.32-358.18.1.el6.x86_64
+	MACHINE:	x86_64
+
+    Packages required :	*	build-essential
+
+==================================================================
+    3. About project 
+==================================================================
+
+
+
+==================================================================
